@@ -25,7 +25,10 @@ class SuggestionsController extends Controller
             'description' => request('description')
         ]);
 
-        return ['message' => 'Project created!'];
+        $suggestions = Suggestion::All()->sortByDesc('created_at');
+        $suggestionsJSON = json_encode($suggestions);
+
+        return $suggestionsJSON;
 
     }
 

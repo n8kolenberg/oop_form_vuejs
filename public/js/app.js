@@ -106,8 +106,7 @@ class Form {
 
     onSuccess(data) {
         // TEMPORARY
-        console.log(data);
-        alert(data.message);
+        console.log(data[0]);
         // Reset the form after submitting
         this.reset();
     }
@@ -132,9 +131,12 @@ const app = new Vue({
     methods: {
         onSubmit() {
             this.form.post('/suggestions')
-                .then(data => console.log(`Handling it! Your request: ${data.message}`))
+                .then(data => {
+                    console.log('Handling it!')
+                })
                 .catch(error => console.log(error));
-        }
+        },
+
 
 
     },

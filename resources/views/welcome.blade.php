@@ -53,21 +53,46 @@
                     </div> <!--End columns div-->
                 </div> <!--End container div-->
                     <hr>
-                {{--<ul>--}}
-                {{--@foreach($suggestions as $suggestion)--}}
-                    {{--<li>--}}
-                        {{--<article class="message is-primary">--}}
-                            {{--<div class="message-header">--}}
-                                {{--Added by {{$suggestion->name}} | {{$suggestion->created_at->diffForHumans()}}--}}
-                            {{--</div>--}}
-                            {{--<div class="message-body">--}}
-                                {{--{{$suggestion->description}}--}}
-                            {{--</div>--}}
-                        {{--</article>--}}
-                    {{--</li>--}}
-                    {{--<br>--}}
-                    {{--@endforeach--}}
-                {{--</ul>--}}
+
+                <div class="tile is-ancestor">
+
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-primary">
+                            <div class="content">
+                                <p class="title">Tall tile</p>
+                                <p class="subtitle">With even more content</p>
+                                <div class="content">
+                                    <!-- Content -->
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+
+
+                <div class="title is-ancestor">
+                @foreach($suggestions as $suggestion)
+                    <article class="title is-child notification is-primary">
+                        <div class="content">
+                            <p class="title">
+                                Added by {{$suggestion->name}}
+                            </p>
+                            <p class="subtitle">
+                                {{$suggestion->created_at->diffForHumans()}}
+                            </p>
+                            <div class="content">
+                                <p style="font-size: 0.75em;">
+                                    {{$suggestion->description}}
+                                </p>
+                            </div>
+
+                        </div>
+                    </article>
+                    <br>
+                    @endforeach
+                </div>
+
 
             {{--@include('layouts.footer')--}}
             </div>
